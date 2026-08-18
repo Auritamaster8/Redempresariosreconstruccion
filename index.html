@@ -3,290 +3,278 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Red Empresarios Reconstrucción</title>
+  <title>Red Solidaria - Cali, Pereira y Chocó</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            azulPure: '#0000FF',
+            verdePure: '#008000',
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
 
-  <header class="bg-blue-900 text-white shadow-lg sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+  <header class="bg-azulPure text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
       <h1 class="text-xl md:text-2xl font-bold flex items-center gap-2">
-        <i class="fa-solid font-bold fa-hand-holding-heart text-amber-400"></i> Red Reconstrucción
+        <i class="fa-solid fa-handshake-angle text-white"></i> Red Solidaria Colombia
       </h1>
-      <span class="bg-amber-500 text-blue-950 font-semibold text-xs md:text-sm px-3 py-1 rounded-full">
-        Unidos por Colombia 🇨🇴
-      </span>
+      <div class="flex gap-2">
+        <button onclick="openModal('empresario')" class="bg-verdePure text-white px-3 py-2 rounded-lg font-bold text-xs md:text-sm hover:opacity-90 transition">
+          + Soy Empresario Afectado
+        </button>
+        <button onclick="openModal('proveedor')" class="bg-white text-azulPure border border-white px-3 py-2 rounded-lg font-bold text-xs md:text-sm hover:bg-slate-100 transition">
+          🤝 Quiero Apoyar
+        </button>
+      </div>
     </div>
   </header>
 
-  <section class="bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-800 text-white py-12 px-4 text-center">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Red Solidaria de Reactivación Empresarial</h2>
-      <p class="text-lg text-blue-100 mb-8">
-        Conectamos empresarios afectados, aliados con maquinaria/recursos disponibles y compradores solidarios.
+  <section class="bg-azulPure text-white py-10 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-extrabold mb-2">¡Unidos por Cali, Pereira y Chocó!</h2>
+      <p class="text-blue-100 text-sm md:text-base mb-6">
+        Plataforma exclusiva para reactivar la economía de los empresarios afectados en estas tres zonas golpeadas. ¡Cualquier persona en Colombia o el exterior puede comprarles o aportar!
       </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
-        <button onclick="openModal('empresario')" class="bg-amber-500 hover:bg-amber-600 text-slate-900 p-6 rounded-xl shadow-xl transition transform hover:-translate-y-1">
-          <div class="text-3xl mb-2"><i class="fa-solid fa-store"></i></div>
-          <h3 class="font-bold text-xl mb-1">Soy Empresario Afectado</h3>
-          <p class="text-xs text-slate-800 font-medium">Regístrate, dinos qué necesitas para volver a producir y vende tus productos.</p>
-        </button>
-
-        <button onclick="openModal('proveedor')" class="bg-indigo-600 hover:bg-indigo-700 text-white p-6 rounded-xl shadow-xl transition transform hover:-translate-y-1">
-          <div class="text-3xl mb-2"><i class="fa-solid fa-industry"></i></div>
-          <h3 class="font-bold text-xl mb-1">Quiero Apoyar / Proveedor</h3>
-          <p class="text-xs text-indigo-100">Ofrece maquinaria, espacios o insumos en horarios especiales para apoyar colegas.</p>
-        </button>
-
-        <a href="#catalogo" class="bg-emerald-600 hover:bg-emerald-700 text-white p-6 rounded-xl shadow-xl transition transform hover:-translate-y-1">
-          <div class="text-3xl mb-2"><i class="fa-solid fa-cart-shopping"></i></div>
-          <h3 class="font-bold text-xl mb-1">Quiero Comprar / Lead</h3>
-          <p class="text-xs text-emerald-100">Encuentra productos y servicios locales para reactivar la economía hoy mismo.</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section id="catalogo" class="max-w-7xl mx-auto px-4 py-8">
-    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 mb-8">
-      <h3 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-800">
-        <i class="fa-solid fa-magnifying-glass text-blue-600"></i> Buscar Productos y Servicios Solidarios
-      </h3>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="bg-white p-4 rounded-xl shadow-md text-slate-800 grid grid-cols-1 md:grid-cols-3 gap-3">
         <div>
-          <label class="block text-xs font-bold text-gray-600 uppercase mb-1">Ciudad de Origen / Entrega</label>
-          <select id="filterCity" onchange="filterProducts()" class="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-blue-500">
-            <option value="all">Todas las ciudades (3 Principales)</option>
+          <label class="block text-xs font-bold text-left mb-1 text-slate-600">Filtrar por Ciudad Afectada:</label>
+          <select id="filterCity" onchange="filterProducts()" class="w-full bg-slate-100 border border-slate-300 rounded-lg p-2 text-sm font-semibold">
+            <option value="all">Todas las ciudades (Cali, Pereira, Chocó)</option>
             <option value="cali">Cali</option>
-            <option value="bogota">Bogotá</option>
-            <option value="medellin">Medellín</option>
+            <option value="pereira">Pereira</option>
+            <option value="choco">Chocó</option>
           </select>
         </div>
-
         <div>
-          <label class="block text-xs font-bold text-gray-600 uppercase mb-1">Categoría de Industria</label>
-          <select id="filterCategory" onchange="filterProducts()" class="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-blue-500">
-            <option value="all">Todas las categorías</option>
-            <option value="moda">Calzado, Textil y Moda</option>
-            <option value="alimentos">Alimentos y Agroindustria</option>
-            <option value="servicios">Servicios / Tangibles e Intangibles</option>
-            <option value="manufactura">Manufactura y Construcción</option>
+          <label class="block text-xs font-bold text-left mb-1 text-slate-600">Categoría:</label>
+          <select id="filterCategory" onchange="filterProducts()" class="w-full bg-slate-100 border border-slate-300 rounded-lg p-2 text-sm font-semibold">
+            <option value="all">Todas las Categorías</option>
+            <option value="alimentos">Alimentos y Comercio</option>
+            <option value="textil">Textil y Confección</option>
+            <option value="servicios">Servicios y Oficios</option>
           </select>
         </div>
-
         <div>
-          <label class="block text-xs font-bold text-gray-600 uppercase mb-1">Buscador palabra clave</label>
-          <div class="relative">
-            <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Ej: Camisas, Asesoria, Zapatos..." class="w-full border border-gray-300 rounded-lg p-3 pl-10 text-sm focus:ring-2 focus:ring-blue-500">
-            <i class="fa-solid fa-magnifying-glass absolute left-3 top-3.5 text-gray-400"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="productGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="product-card bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden" data-city="cali" data-category="moda">
-        <div class="bg-gray-100 h-48 flex items-center justify-center text-gray-400 text-4xl">
-          <i class="fa-solid fa-shirt"></i>
-        </div>
-        <div class="p-5">
-          <div class="flex justify-between items-center mb-2">
-            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-0.5 rounded">Cali</span>
-            <span class="text-xs text-gray-500">Textil & Moda</span>
-          </div>
-          <h4 class="font-bold text-lg mb-1">Dotaciones y Camisas de Algodón</h4>
-          <p class="text-xs text-gray-600 mb-3">Confección de alta calidad recuperada tras reactivación de taller.</p>
-          <p class="text-xl font-extrabold text-slate-900 mb-3">$45.000 COP</p>
-          
-          <div class="bg-gray-50 p-2.5 rounded-lg border text-xs text-gray-600 mb-4">
-            <p><strong><i class="fa-solid fa-truck text-emerald-600"></i> Garantía de Entrega:</strong> Despacho físico nacional en 3 días hábiles.</p>
-          </div>
-
-          <div class="flex gap-2">
-            <a href="https://epayco.me" target="_blank" class="w-1/2 bg-emerald-600 hover:bg-emerald-700 text-white text-center py-2 rounded-lg text-sm font-bold flex items-center justify-center gap-1">
-              <i class="fa-solid fa-credit-card"></i> Pagar
-            </a>
-            <a href="https://wa.me/573000000000" target="_blank" class="w-1/2 bg-green-500 hover:bg-green-600 text-white text-center py-2 rounded-lg text-sm font-bold flex items-center justify-center gap-1">
-              <i class="fa-brands fa-whatsapp"></i> WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-card bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden" data-city="bogota" data-category="servicios">
-        <div class="bg-gray-100 h-48 flex items-center justify-center text-gray-400 text-4xl">
-          <i class="fa-solid fa-laptop-code"></i>
-        </div>
-        <div class="p-5">
-          <div class="flex justify-between items-center mb-2">
-            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-0.5 rounded">Bogotá</span>
-            <span class="text-xs text-gray-500">Servicios Virtuales</span>
-          </div>
-          <h4 class="font-bold text-lg mb-1">Diseño Web y Marketing Digital</h4>
-          <p class="text-xs text-gray-600 mb-3">Servicios profesionales intangibles de reactivación comercial.</p>
-          <p class="text-xl font-extrabold text-slate-900 mb-3">$150.000 COP</p>
-          
-          <div class="bg-gray-50 p-2.5 rounded-lg border text-xs text-gray-600 mb-4">
-            <p><strong><i class="fa-solid fa-wifi text-blue-600"></i> Garantía Servicio Virtual:</strong> Entrega e implementación 100% online vía Zoom/Drive en 48h.</p>
-          </div>
-
-          <div class="flex gap-2">
-            <a href="https://mercadopago.com" target="_blank" class="w-1/2 bg-emerald-600 hover:bg-emerald-700 text-white text-center py-2 rounded-lg text-sm font-bold flex items-center justify-center gap-1">
-              <i class="fa-solid fa-credit-card"></i> Pagar
-            </a>
-            <a href="https://wa.me/573000000000" target="_blank" class="w-1/2 bg-green-500 hover:bg-green-600 text-white text-center py-2 rounded-lg text-sm font-bold flex items-center justify-center gap-1">
-              <i class="fa-brands fa-whatsapp"></i> WhatsApp
-            </a>
-          </div>
+          <label class="block text-xs font-bold text-left mb-1 text-slate-600">Buscar por Palabra Clave:</label>
+          <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Ej. calzado, pan, confección..." class="w-full bg-slate-100 border border-slate-300 rounded-lg p-2 text-sm">
         </div>
       </div>
     </div>
   </section>
 
-  <div id="modalEmpresario" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
-    <div class="bg-white rounded-2xl max-w-2xl w-full p-6 relative my-8">
-      <button onclick="closeModal('empresario')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
-      <h3 class="text-2xl font-bold text-amber-600 mb-2">Registro de Empresario Afectado</h3>
-      <p class="text-xs text-gray-500 mb-6">Ingresa tus datos para activar tu perfil y publicar tus ofertas de venta.</p>
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    <h3 class="text-xl font-bold text-azulPure mb-6 flex items-center gap-2">
+      <i class="fa-solid fa-store"></i> Ofertas y Productos Directos de Afectados
+    </h3>
+
+    <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="product-card bg-white rounded-xl shadow-md border border-slate-200 p-5 flex flex-col justify-between" data-city="cali" data-category="alimentos">
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <span class="bg-blue-100 text-azulPure text-xs font-bold px-2.5 py-0.5 rounded">Cali</span>
+            <span class="text-xs text-slate-500 font-medium">Alimentos</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-800">Panadería El Valle Recuperado</h3>
+          <p class="text-slate-600 text-sm mt-1">Producción activa. Ofrecemos insumos y pan baguette al por mayor e individual.</p>
+          <div class="mt-3 text-xs bg-slate-50 p-2 rounded border border-slate-100 text-slate-600">
+            <p><strong>Garantía:</strong> Entrega local e intermunicipal asegurada.</p>
+          </div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+          <span class="text-lg font-extrabold text-slate-900">$25.000 COP</span>
+          <div class="flex gap-2">
+            <a href="https://wa.me/570000000000" target="_blank" class="bg-verdePure text-white px-3 py-1.5 rounded-lg text-xs font-bold hover:opacity-90 flex items-center gap-1">
+              <i class="fa-brands fa-whatsapp"></i> Contactar
+            </a>
+            <button onclick="alert('Redirigiendo a Pasarela Segura...')" class="bg-azulPure text-white px-3 py-1.5 rounded-lg text-xs font-bold hover:opacity-90">
+              Pagar Online
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card bg-white rounded-xl shadow-md border border-slate-200 p-5 flex flex-col justify-between" data-city="pereira" data-category="textil">
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <span class="bg-blue-100 text-azulPure text-xs font-bold px-2.5 py-0.5 rounded">Pereira</span>
+            <span class="text-xs text-slate-500 font-medium">Textil</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-800">Confecciones Risaralda Unida</h3>
+          <p class="text-slate-600 text-sm mt-1">Lote de camisetas básicas y dotaciones de trabajo con envío a todo el país.</p>
+          <div class="mt-3 text-xs bg-slate-50 p-2 rounded border border-slate-100 text-slate-600">
+            <p><strong>Garantía:</strong> Despacho en 48 horas a nivel nacional.</p>
+          </div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+          <span class="text-lg font-extrabold text-slate-900">$35.000 COP</span>
+          <div class="flex gap-2">
+            <a href="https://wa.me/570000000000" target="_blank" class="bg-verdePure text-white px-3 py-1.5 rounded-lg text-xs font-bold hover:opacity-90 flex items-center gap-1">
+              <i class="fa-brands fa-whatsapp"></i> Contactar
+            </a>
+            <button onclick="alert('Redirigiendo a Pasarela Segura...')" class="bg-azulPure text-white px-3 py-1.5 rounded-lg text-xs font-bold hover:opacity-90">
+              Pagar Online
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card bg-white rounded-xl shadow-md border border-slate-200 p-5 flex flex-col justify-between" data-city="choco" data-category="servicios">
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <span class="bg-blue-100 text-azulPure text-xs font-bold px-2.5 py-0.5 rounded">Chocó</span>
+            <span class="text-xs text-slate-500 font-medium">Servicios</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-800">Artesanías y Talleres del Atrato</h3>
+          <p class="text-slate-600 text-sm mt-1">Servicios de diseño, confección artesanal y producción de accesorios locales.</p>
+          <div class="mt-3 text-xs bg-slate-50 p-2 rounded border border-slate-100 text-slate-600">
+            <p><strong>Garantía:</strong> Envíos nacionales e internacionales.</p>
+          </div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+          <span class="text-lg font-extrabold text-slate-900">$40.000 COP</span>
+          <div class="flex gap-2">
+            <a href="https://wa.me/570000000000" target="_blank" class="bg-verdePure text-white px-3 py-1.5 rounded-lg text-xs font-bold hover:opacity-90 flex items-center gap-1">
+              <i class="fa-brands fa-whatsapp"></i> Contactar
+            </a>
+            <button onclick="alert('Redirigiendo a Pasarela Segura...')" class="bg-azulPure text-white px-3 py-1.5 rounded-lg text-xs font-bold hover:opacity-90">
+              Pagar Online
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="modalEmpresario" class="hidden fixed inset-0 bg-slate-900/60 flex items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('empresario')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold">&times;</button>
+      
+      <h3 class="text-xl font-bold text-azulPure mb-1">Registro de Empresario Afectado</h3>
+      <p class="text-xs text-slate-500 mb-4">Registro exclusivo para negocios ubicados en las zonas de afectación.</p>
 
       <form id="formEmpresario" onsubmit="submitForm(event, 'empresario')">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div class="space-y-3">
           <div>
-            <label class="block text-xs font-bold mb-1">Nombre / Razón Social</label>
-            <input type="text" required class="w-full border rounded-lg p-2 text-sm">
+            <label class="block text-xs font-bold text-slate-700">Nombre de la Empresa / Emprendimiento:</label>
+            <input type="text" required class="w-full border border-slate-300 rounded-lg p-2 text-sm">
           </div>
+          
           <div>
-            <label class="block text-xs font-bold mb-1">Ciudad</label>
-            <select class="w-full border rounded-lg p-2 text-sm">
-              <option>Cali</option>
-              <option>Bogotá</option>
-              <option>Medellín</option>
+            <label class="block text-xs font-bold text-slate-700">Ciudad de Afectación (Únicamente válidas):</label>
+            <select required class="w-full border border-slate-300 rounded-lg p-2 text-sm font-semibold text-azulPure bg-slate-50">
+              <option value="">-- Selecciona tu ciudad --</option>
+              <option value="Cali">Cali</option>
+              <option value="Pereira">Pereira</option>
+              <option value="Choco">Chocó</option>
             </select>
           </div>
+
           <div>
-            <label class="block text-xs font-bold mb-1">Categoría</label>
-            <select class="w-full border rounded-lg p-2 text-sm">
-              <option value="moda">Calzado, Textil y Moda</option>
-              <option value="alimentos">Alimentos y Agroindustria</option>
-              <option value="servicios">Servicios / Intangibles</option>
-              <option value="manufactura">Manufactura</option>
+            <label class="block text-xs font-bold text-slate-700">Teléfono / WhatsApp de Contacto:</label>
+            <input type="tel" required placeholder="+57 300 000 0000" class="w-full border border-slate-300 rounded-lg p-2 text-sm">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700">Categoría:</label>
+            <select required class="w-full border border-slate-300 rounded-lg p-2 text-sm">
+              <option value="alimentos">Alimentos y Comercio</option>
+              <option value="textil">Textil y Confección</option>
+              <option value="servicios">Servicios / Reparaciones</option>
             </select>
           </div>
+
           <div>
-            <label class="block text-xs font-bold mb-1">Nivel de Afectación</label>
-            <select class="w-full border rounded-lg p-2 text-sm">
-              <option>Pérdida Parcial de Recursos</option>
-              <option>Pérdida Total</option>
-            </select>
+            <label class="block text-xs font-bold text-slate-700">¿Qué producto o servicio vendes actualmente?</label>
+            <textarea required rows="2" class="w-full border border-slate-300 rounded-lg p-2 text-sm"></textarea>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700">Enlace de Pago Propio (MercadoPago / Wompi / Bold / Nequi / PayPal):</label>
+            <input type="url" placeholder="https://..." class="w-full border border-slate-300 rounded-lg p-2 text-sm">
           </div>
         </div>
 
-        <div class="mb-4">
-          <label class="block text-xs font-bold mb-1">¿Qué recursos o maquinaria requieres para volver a producir?</label>
-          <textarea rows="2" placeholder="Ej: Requiero 2 máquinas fileteadoras para confección..." class="w-full border rounded-lg p-2 text-sm"></textarea>
-        </div>
-
-        <div class="border-t pt-4 mb-4">
-          <h4 class="font-bold text-sm text-slate-800 mb-2">Oferta Principal a Vender</h4>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-xs font-bold mb-1">Nombre del Producto / Servicio</label>
-              <input type="text" required class="w-full border rounded-lg p-2 text-sm">
-            </div>
-            <div>
-              <label class="block text-xs font-bold mb-1">Precio ($ COP)</label>
-              <input type="number" required class="w-full border rounded-lg p-2 text-sm">
-            </div>
-            <div class="md:col-span-2">
-              <label class="block text-xs font-bold mb-1">Detalles de Entrega y Garantía</label>
-              <input type="text" placeholder="Ej: Envío a domicilio en 3 días / Entregable PDF por email" class="w-full border rounded-lg p-2 text-sm">
-            </div>
-            <div class="md:col-span-2">
-              <label class="block text-xs font-bold mb-1">Link de Pago Configurado (MercadoPago / Epayco / Bold / Wompi)</label>
-              <input type="url" placeholder="https://epayco.me/tu-link-de-pago" required class="w-full border rounded-lg p-2 text-sm">
-            </div>
-          </div>
-        </div>
-
-        <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 rounded-lg text-sm">
-          Completar Registro
+        <button type="submit" class="w-full bg-verdePure text-white font-bold py-3 rounded-lg mt-5 hover:opacity-90 transition text-sm">
+          Registrar mi Empresa
         </button>
       </form>
 
       <div id="successEmpresario" class="hidden text-center py-6">
-        <div class="text-emerald-500 text-5xl mb-4"><i class="fa-solid fa-circle-check"></i></div>
-        <h4 class="text-2xl font-bold text-slate-800 mb-2">¡Registro Exitoso!</h4>
-        <p class="text-sm text-gray-600 mb-6">Nos pondremos en contacto contigo inmediatamente una vez validada la información.</p>
-        
-        <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl text-amber-900 italic text-sm">
-          <i class="fa-solid fa-quote-left mr-2"></i>
-          "Ninguna estructura caída es más fuerte que una comunidad unida. Tu talento y resiliencia reconstruirán el país. ¡Estamos listos para ponernos de pie juntos!"
-        </div>
+        <i class="fa-solid fa-circle-check text-verdePure text-5xl mb-3"></i>
+        <h4 class="text-lg font-bold text-slate-800">¡Registro Exitoso!</h4>
+        <p class="text-sm text-slate-600 mt-2">Tu información ha sido cargada. Pronto estará visible en el directorio.</p>
+        <p class="text-xs italic text-azulPure font-semibold mt-4">
+          "Ninguna estructura caída es más fuerte que una comunidad unida. Tu talento y resiliencia reconstruirán la región. ¡Estamos listos para ponernos de pie juntos!"
+        </p>
+        <button onclick="closeModal('empresario')" class="mt-5 bg-azulPure text-white px-5 py-2 rounded-lg text-sm font-bold">Cerrar</button>
       </div>
     </div>
   </div>
 
-  <div id="modalProveedor" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
-    <div class="bg-white rounded-2xl max-w-2xl w-full p-6 relative my-8">
-      <button onclick="closeModal('proveedor')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
-      <h3 class="text-2xl font-bold text-indigo-700 mb-2">Registro de Proveedor Solidario</h3>
-      <p class="text-xs text-gray-500 mb-6">Ofrece recursos o maquinaria para ayudar a producir a otros colegas.</p>
+  <div id="modalProveedor" class="hidden fixed inset-0 bg-slate-900/60 flex items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('proveedor')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold">&times;</button>
+      
+      <h3 class="text-xl font-bold text-azulPure mb-1">Registro de Proveedor / Aliado Solidario</h3>
+      <p class="text-xs text-slate-500 mb-4">Para empresas o personas de cualquier región que deseen apoyar con maquinaria, instalaciones o insumos.</p>
 
       <form id="formProveedor" onsubmit="submitForm(event, 'proveedor')">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div class="space-y-3">
           <div>
-            <label class="block text-xs font-bold mb-1">Nombre / Empresa Proveedora</label>
-            <input type="text" required class="w-full border rounded-lg p-2 text-sm">
+            <label class="block text-xs font-bold text-slate-700">Nombre de la Empresa o Aliado:</label>
+            <input type="text" required class="w-full border border-slate-300 rounded-lg p-2 text-sm">
           </div>
+
           <div>
-            <label class="block text-xs font-bold mb-1">Ciudad del Recurso</label>
-            <select class="w-full border rounded-lg p-2 text-sm">
-              <option>Cali</option>
-              <option>Bogotá</option>
-              <option>Medellín</option>
+            <label class="block text-xs font-bold text-slate-700">Ubicación / Ciudad desde donde apoya:</label>
+            <input type="text" required placeholder="Ej. Medellín, Bogotá, Bucaramanga, etc." class="w-full border border-slate-300 rounded-lg p-2 text-sm">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700">Tipo de Apoyo / Recurso Disponible:</label>
+            <select required class="w-full border border-slate-300 rounded-lg p-2 text-sm">
+              <option value="maquinaria">Préstamo / Alquiler Solidario de Maquinaria</option>
+              <option value="taller">Espacio / Taller / Punto de Acopio</option>
+              <option value="insumos">Insumos y Materia Prima</option>
+              <option value="voluntariado">Asesoría / Mano de Obra</option>
             </select>
           </div>
-        </div>
 
-        <div class="mb-4">
-          <label class="block text-xs font-bold mb-1">Tipo de Recurso Disponible (Alquiler / Préstamo de Maquinaria)</label>
-          <input type="text" placeholder="Ej: Taller textil con 5 máquinas industriales" class="w-full border rounded-lg p-2 text-sm" required>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div>
-            <label class="block text-xs font-bold mb-1">Horarios Disponibles</label>
-            <input type="text" placeholder="Ej: Nocturno 8:00 PM a 6:00 AM" class="w-full border rounded-lg p-2 text-sm" required>
+            <label class="block text-xs font-bold text-slate-700">Horarios y Condiciones del Apoyo:</label>
+            <textarea required placeholder="Ej. Turno nocturno de 8 PM a 6 AM para producción." rows="2" class="w-full border border-slate-300 rounded-lg p-2 text-sm"></textarea>
           </div>
+
           <div>
-            <label class="block text-xs font-bold mb-1">Días Disponibles</label>
-            <input type="text" placeholder="Ej: Lunes a Viernes" class="w-full border rounded-lg p-2 text-sm" required>
+            <label class="block text-xs font-bold text-slate-700">WhatsApp de Contacto:</label>
+            <input type="tel" required placeholder="+57 300 000 0000" class="w-full border border-slate-300 rounded-lg p-2 text-sm">
           </div>
         </div>
 
-        <div class="mb-6">
-          <label class="block text-xs font-bold mb-1">Requisitos Previos y Detalles Operativos</label>
-          <textarea rows="3" placeholder="Detalla condiciones de uso, operador técnico requerido, etc." class="w-full border rounded-lg p-2 text-sm"></textarea>
-        </div>
-
-        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-lg text-sm">
-          Registrar Recurso Solidario
+        <button type="submit" class="w-full bg-azulPure text-white font-bold py-3 rounded-lg mt-5 hover:opacity-90 transition text-sm">
+          Registrar Apoyo Solidario
         </button>
       </form>
 
       <div id="successProveedor" class="hidden text-center py-6">
-        <div class="text-emerald-500 text-5xl mb-4"><i class="fa-solid fa-handshake"></i></div>
-        <h4 class="text-2xl font-bold text-slate-800 mb-2">¡Gracias por tu Solidaridad!</h4>
-        <p class="text-sm text-gray-600">Validaremos tu recurso disponible para conectarte con los empresarios que más lo necesitan.</p>
+        <i class="fa-solid fa-handshake-angle text-azulPure text-5xl mb-3"></i>
+        <h4 class="text-lg font-bold text-slate-800">¡Gracias por tu Solidaridad!</h4>
+        <p class="text-sm text-slate-600 mt-2">Tu ofrecimiento ha sido registrado para conectar con los afectados de Cali, Pereira y Chocó.</p>
+        <button onclick="closeModal('proveedor')" class="mt-5 bg-azulPure text-white px-5 py-2 rounded-lg text-sm font-bold">Cerrar</button>
       </div>
     </div>
   </div>
 
   <script>
-    // Control de Modales
     function openModal(type) {
       if (type === 'empresario') document.getElementById('modalEmpresario').classList.remove('hidden');
       if (type === 'proveedor') document.getElementById('modalProveedor').classList.remove('hidden');
@@ -297,7 +285,6 @@
       if (type === 'proveedor') document.getElementById('modalProveedor').classList.add('hidden');
     }
 
-    // Manejo de Envíos de Formulario
     function submitForm(event, type) {
       event.preventDefault();
       if (type === 'empresario') {
@@ -309,7 +296,6 @@
       }
     }
 
-    // Buscador y Filtros Dinámicos
     function filterProducts() {
       const city = document.getElementById('filterCity').value;
       const category = document.getElementById('filterCategory').value;
@@ -323,7 +309,7 @@
         const matchSearch = cardText.includes(search);
 
         if (matchCity && matchCategory && matchSearch) {
-          card.style.display = 'block';
+          card.style.display = 'flex';
         } else {
           card.style.display = 'none';
         }
